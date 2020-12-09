@@ -1,0 +1,55 @@
+IF EXISTS (SELECT * FROM sys.databases WHERE Name LIKE 'test')
+	DROP DATABASE test
+GO
+
+CREATE DATABASE test
+GO
+
+USE test
+
+CREATE TABLE Students (
+	StudentID int NOT NULL UNIQUE,
+	Name Nvarchar(20) NOT NULL
+)
+
+CREATE TABLE CLASS (
+	ClassID int NOT NULL UNIQUE,
+	ClassRoom Nvarchar(10)
+)
+
+CREATE TABLE StudensClass (
+	ListStudent int IDENTITY,
+	ClassID int,
+	StudentID int
+)
+
+INSERT INTO Students VALUES (1,'Ha Anh Tuan')
+
+INSERT INTO CLASS VALUES (1,'FPT')
+
+INSERT INTO StudensClass VALUES (1,1)
+
+ALTER TABLE Students
+	ADD CONSTRAINT stid PRIMARY KEY (StudentID)
+
+ALTER TABLE CLASS
+	ADD CONSTRAINT clid PRIMARY KEY (ClassID)
+
+ALTER TABLE StudensClass
+	ADD CONSTRAINT to_stid FOREIGN KEY (StudentID) REFERENCES Students(StudentID)
+
+ALTER TABLE StudensClass
+	ADD CONSTRAINT to_clid FOREIGN KEY (ClassID) REFERENCES Class(ClassID)
+
+ALTER TABLE Students
+	DROP CONSTRAINT stid
+
+ALTER TABLE CLASS
+	DROP CONSTRAINT clid
+
+ALTER TABLE StudensClass
+	DROP CONSTRAINT to_stid
+
+ALTER TABLE StudensClass
+	DROP CONSTRAINT to_clid
+
