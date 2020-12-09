@@ -1,11 +1,11 @@
-IF EXISTS (SELECT * FROM sys.databases WHERE Name LIKE 'test')
-	DROP DATABASE test
+IF EXISTS (SELECT * FROM sys.databases WHERE Name LIKE 'ClassRoom')
+	DROP DATABASE ClassRoom
 GO
 
-CREATE DATABASE test
+CREATE DATABASE ClassRoom
 GO
 
-USE test
+USE ClassRoom
 
 CREATE TABLE Students (
 	StudentID int NOT NULL UNIQUE,
