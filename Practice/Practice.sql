@@ -1,13 +1,13 @@
 USE master
 
-IF EXISTS (SELECT * FROM sys.databases WHERE Name LIKE 'test')
-	DROP DATABASE test
+IF EXISTS (SELECT * FROM sys.databases WHERE Name LIKE 'SellingPoint')
+	DROP DATABASE SellingPoint
 GO
 
-CREATE DATABASE test
+CREATE DATABASE SellingPoint
 GO
 
-USE test
+USE SellingPoint
 
 CREATE TABLE Categories (
 	CateID char(6) CONSTRAINT PK_cateid PRIMARY KEY (CateID),
