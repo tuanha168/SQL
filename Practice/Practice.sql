@@ -12,7 +12,7 @@ USE SellingPoint
 CREATE TABLE Categories (
 	CateID char(6) CONSTRAINT PK_cateid PRIMARY KEY (CateID),
 	CateName nvarchar(100) NOT NULL,
-	Description nvarchar(200),
+	Description nvarchar(200)
 )
 
 CREATE TABLE Parts (
@@ -27,14 +27,11 @@ CREATE TABLE Parts (
 )
 
 INSERT INTO Categories VALUES
-	('SSD','SSD','Computer`s SSD'),
-	('CPU','CPU','Computer`s CPU'),
-	('HDD','HDD','Computer`s HDD')
+-- Thêm vào đây
 
 INSERT INTO Parts VALUES
-	('SSD 100GB','SSD','SSD have 100GB',900,50,1,DEFAULT),
-	('HDD 100GB','HDD','HDD have 100GB',500,50,1,DEFAULT),
-	('God CPU','CPU','Best CPU Of The Worlds',99999999,1,9999,DEFAULT)
+-- Thêm vào đây
+
 
 SELECT * FROM Parts WHERE Price > 100
 
